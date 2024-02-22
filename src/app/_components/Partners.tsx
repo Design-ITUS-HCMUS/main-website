@@ -1,8 +1,8 @@
 // React and Next
 import Image from 'next/image';
 
-import { styled } from '@mui/material';
 // Material UI Components
+import { styled } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 // Local Imports

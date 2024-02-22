@@ -13,6 +13,7 @@ interface LogoProps {
    *    <li><code>small</code>: 32px</li>
    *    <li><code>medium</code>: 44px</li>
    *    <li><code>large</code>: 60px</li>
+   *   <li><code>extraLarge</code>: 80px</li>
    */
   size: keyof typeof LogoSize;
 }

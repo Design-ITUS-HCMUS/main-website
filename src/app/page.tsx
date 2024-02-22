@@ -1,7 +1,6 @@
 'use client';
 
 import { styled } from '@mui/material';
-import Button from '@mui/material/Button';
 
 import { AboutUs } from '@/app/_components/AboutUs';
 import { HeroBanner } from '@/app/_components/HeroBanner';
@@ -9,10 +8,8 @@ import { LatestEvents } from '@/app/_components/LastestEvents';
 import { Leaders } from '@/app/_components/Leaders';
 import { Partners } from '@/app/_components/Partners';
 import { Quote } from '@/app/_components/Quote';
-import { colors } from '@/libs/ui';
 import { Footer } from '@/libs/ui/components/Footer';
 import Navbar from '@/libs/ui/components/Navbar';
-import { Logo } from '@components';
 
 const StyledDiv = styled('div')(({ theme }) => ({
   display: 'flex',

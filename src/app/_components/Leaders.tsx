@@ -9,11 +9,12 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import MobileStepper from '@mui/material/MobileStepper';
 
+// Material UI Icons
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
-import { colors } from '../../libs/ui';
 // Local Imports
+import { colors } from '../../libs/ui';
 import { LeaderCard } from './LeaderCard';
 
 const StyledDiv = styled('div')(({ theme }) => ({

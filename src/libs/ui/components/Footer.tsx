@@ -1,17 +1,17 @@
 // React and Next
 import Image from 'next/image';
 
+// Material UI Components
 import { styled, useTheme } from '@mui/material';
 import Divider from '@mui/material/Divider';
-// Material UI Components
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+// Material UI Icons
 import FacebookRounded from '@mui/icons-material/FacebookRounded';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-// Material UI Icons
 import PhoneIcon from '@mui/icons-material/Phone';
 
 // Local Imports

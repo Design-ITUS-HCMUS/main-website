@@ -3,10 +3,10 @@
 // React and Next
 import Image from 'next/image';
 
+// Material UI Components
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-// Material UI Components
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
