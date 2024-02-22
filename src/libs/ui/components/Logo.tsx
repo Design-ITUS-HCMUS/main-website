@@ -4,6 +4,7 @@ enum LogoSize {
   'small' = 32,
   'medium' = 44,
   'large' = 60,
+  'extraLarge' = 80,
 }
 
 interface LogoProps {
@@ -19,7 +20,7 @@ interface LogoProps {
 export function Logo({ size = 'medium' }: LogoProps) {
   return (
     <Image
-      src='/designituslogo.svg'
+      src='/logos/designituslogo.svg'
       width='0'
       height={LogoSize[size]}
       style={{ width: 'auto' }}
