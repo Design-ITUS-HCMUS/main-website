@@ -47,7 +47,6 @@ const StyledDiv = styled('div')(({ theme }) => ({
   MozUserSelect: 'none',
   MsUserSelect: 'none',
   userSelect: 'none',
-  WebkitMask: 'linear-gradient(90deg,#0000,#000 10% 80%,#0000)',
 }));
 
 export default function InfiniteLooper({ speed, direction, children }: any) {

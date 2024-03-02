@@ -1,41 +1,30 @@
 'use client';
 
-import { styled } from '@mui/material';
+//Material UI Components
+import Stack from '@mui/material/Stack';
 
+//Local Imports
 import { AboutUs } from '@/app/_components/AboutUs';
 import { HeroBanner } from '@/app/_components/HeroBanner';
-import { LatestEvents } from '@/app/_components/LastestEvents';
+import { LatestEvents } from '@/app/_components/LatestEvents';
 import { Leaders } from '@/app/_components/Leaders';
 import { Partners } from '@/app/_components/Partners';
 import { Quote } from '@/app/_components/Quote';
-import { Footer } from '@/libs/ui/components/Footer';
-import Navbar from '@/libs/ui/components/Navbar';
-
-const StyledDiv = styled('div')(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  backgroundColor: 'background.default',
-  margin: '4rem 7.5rem 0 7.5rem',
-  [theme.breakpoints.down('md')]: {
-    margin: '4rem 3.75rem 0 3.75rem',
-  },
-  [theme.breakpoints.down('sm')]: {
-    margin: '3rem 1.125rem 0 1.125rem',
-  },
-}));
+import { Footer } from '@components/Footer';
+import Navbar from '@components/Navbar';
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <StyledDiv>
+      <Stack marginTop={{ xs: '3rem', md: '4rem' }}>
         <HeroBanner />
         <AboutUs />
         <LatestEvents />
         <Quote />
         <Partners />
         <Leaders />
-      </StyledDiv>
+      </Stack>
       <Footer />
     </>
   );

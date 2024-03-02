@@ -1,0 +1,20 @@
+[
+  {
+    "name": "TÊN SỰ KIỆN 1",
+    "link": "/",
+    "image": "/images/eventimage.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."
+  },
+  {
+    "name": "TÊN SỰ KIỆN 2",
+    "link": "/",
+    "image": "/images/eventimage.jpg",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."
+  },
+  {
+    "name": "TÊN SỰ KIỆN 3",
+    "link": "/",
+    "image": "/images/eventimage.jpg",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."
+  }
+]

@@ -2,7 +2,8 @@
 import Image from 'next/image';
 
 // Material UI Components
-import { styled, useTheme } from '@mui/material';
+import { useTheme } from '@mui/material';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -10,13 +11,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 
 // Material UI Icons
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-
-const StyledDiv = styled('div')(({ theme }) => ({
-  margin: '3.75rem 1rem',
-  [theme.breakpoints.down('sm')]: {
-    margin: '2rem 1rem 1.5rem 1rem',
-  },
-}));
 
 const TextContainerStyle = {
   display: 'flex',
@@ -31,9 +25,9 @@ export function AboutUs() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
-    <StyledDiv id='AboutUs'>
+    <Box sx={{ height: '31.25rem', margin: { xs: '0 1.125rem', md: '0 0' }, display: 'flex', alignItems: 'center' }}>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6} lg={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
           {!isMobile ? (
             <Image
               src='/decor/designitusaboutus.svg'
@@ -53,23 +47,21 @@ export function AboutUs() {
           )}
         </Grid>
 
-        <Grid item xs={12} md={6} lg={5} sx={TextContainerStyle}>
+        <Grid item xs={12} md={5} sx={TextContainerStyle}>
           <Typography variant='title' pt={2}>
             CHÚNG TÔI LÀ AI?
           </Typography>
 
-          <Typography variant='body2' py={2}>
+          <Typography py={2}>
             Design ITUS là Câu lạc bộ Học thuật Thiết kế đầu tiên của khoa Công nghệ thông tin, trường ĐH Khoa học tự
             nhiên, ĐHQG TPHCM. Đây là nơi dành cho những bạn trẻ có niềm đam mê về thiết kế đồ hoạ, UI/UX, nhiếp ảnh,
             dựng phim, video, vẽ tay và kỹ thuật số. Bên cạnh đó còn có cuộc thi học thuật thường niên có tên Outr
             Space.
           </Typography>
 
-          <Button variant='contained'>
-            Tìm hiểu thêm <ArrowRightIcon sx={{ fontSize: '200%' }} />
-          </Button>
+          <Button endIcon={<ArrowRightIcon />}>Tìm hiểu thêm</Button>
         </Grid>
       </Grid>
-    </StyledDiv>
+    </Box>
   );
 }

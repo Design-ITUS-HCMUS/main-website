@@ -4,6 +4,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useMotionValueEvent, useScroll } from 'framer-motion';
 
 // Material UI Components
 import AppBar from '@mui/material/AppBar';
@@ -39,8 +40,6 @@ import ViewCarouselRoundedIcon from '@mui/icons-material/ViewCarouselRounded';
 import { colors } from '../';
 import { Logo } from './Logo';
 
-import { useMotionValueEvent, useScroll } from 'framer-motion';
-
 interface INavbarPill {
   name: string;
   link?: string;
@@ -63,7 +62,7 @@ interface StyledNavbarPillProps extends ButtonProps {
 
 const StyledNavbarPill = styled(Button, { shouldForwardProp: (prop) => prop !== 'active' })<StyledNavbarPillProps>(
   ({ active }) => ({
-    color: active ? colors.neutral.white : colors.blue[500],
+    color: active ? colors.neutral.white : colors.blue[900],
     backgroundColor: active ? colors.blue[500] : 'transparent',
     height: '100%',
     padding: '1rem 1.25rem 0rem 1.25rem',
@@ -79,6 +78,31 @@ const StyledNavbarPill = styled(Button, { shouldForwardProp: (prop) => prop !== 
     },
   })
 );
+
+const StyledListItemButton = styled(ListItemButton, {
+  shouldForwardProp: (prop) => prop !== 'active',
+})<StyledNavbarPillProps>(({ active }) => ({
+  color: active ? colors.blue[600] : colors.neutral[300],
+  backgroundColor: active ? colors.blue[50] : 'transparent',
+  height: '100%',
+  margin: '0.5rem 1rem',
+  '&.Mui-disabled': {
+    backgroundColor: 'transparent',
+  },
+  '&:hover': {
+    color: active ? colors.blue[700] : colors.blue[600],
+    backgroundColor: active ? colors.blue[100] : colors.blue[50],
+    '> .page-icon': {
+      color: active ? colors.blue[700] : colors.blue[600],
+    },
+  },
+  '& .MuiButton-endIcon': {
+    marginLeft: 0,
+  },
+  '> .page-icon': {
+    color: active ? colors.blue[600] : colors.neutral[300],
+  },
+}));
 
 const FocusedNavbarPillStyle = {
   color: colors.neutral.white,
@@ -163,19 +187,18 @@ function Title(): React.JSX.Element {
   );
 }
 
+function SmallTitle(): React.JSX.Element {
+  return (
+    <StyledDiv>
+      <Logo size='small' />
+    </StyledDiv>
+  );
+}
+
 const pages: INavbarPill[] = [
   { name: 'Trang chủ', link: '/', icon: <HomeRoundedIcon /> },
   { name: 'Giới thiệu', link: '/aboutus', icon: <ViewCarouselRoundedIcon /> },
-  {
-    name: 'Sự kiện',
-    link: '/events',
-    menuItems: [
-      { name: 'Outr space 8 (OS8)', link: '/events/OS8' },
-      { name: 'Workshop Des to Dev (D2D)', link: '/events/D2D', disabled: true },
-      { name: 'Tất cả sự kiện', link: '/events' },
-    ],
-    icon: <AutoAwesomeRoundedIcon />,
-  },
+  { name: 'Sự kiện', link: '/events', icon: <AutoAwesomeRoundedIcon /> },
 ];
 
 export interface NavbarProps {
@@ -188,7 +211,6 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
   color: colors.blue[900],
   justifyContent: 'space-between',
   backgroundColor: theme.palette.background.default,
-
   [theme.breakpoints.down('md')]: {
     padding: theme.spacing(0, 5),
   },
@@ -223,9 +245,9 @@ function Navbar({ activeURL = '' }: NavbarProps): React.JSX.Element {
   useMotionValueEvent(scrollY, 'change', (latest) => {
     if (navbarRef.current) {
       if (latest > 0) {
-        navbarRef.current.style.boxShadow = '0 0 1rem 0 rgba(0,0,0,0.2)';
+        navbarRef.current.style.borderBottom = '2px solid rgb(0, 0, 0)';
       } else {
-        navbarRef.current.style.boxShadow = 'none';
+        navbarRef.current.style.borderBottom = 'none';
       }
     }
   });
@@ -233,11 +255,11 @@ function Navbar({ activeURL = '' }: NavbarProps): React.JSX.Element {
   return (
     <StyledAppBar position='fixed' elevation={0} ref={navbarRef}>
       <Container maxWidth={false} disableGutters>
-        <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
-          <Title />
+        <Toolbar disableGutters variant='dense' sx={{ justifyContent: 'space-between', minHeight: '2.5rem' }}>
           {/* Responsive -> Visible only on MD and above */}
           {!isMobile ? (
             <>
+              <Title />
               <Box sx={{ display: 'flex', gap: 3 }}>
                 {pages.map((page, index) => (
                   <NavbarPill
@@ -252,6 +274,7 @@ function Navbar({ activeURL = '' }: NavbarProps): React.JSX.Element {
           ) : (
             /* Responsive -> Visible only on XS and SM */
             <>
+              <SmallTitle />
               <Box sx={{ display: { md: 'none' } }}>
                 <IconButton onClick={toggleDrawer}>
                   <MenuIcon color='primary' />
@@ -259,7 +282,7 @@ function Navbar({ activeURL = '' }: NavbarProps): React.JSX.Element {
               </Box>
               <Drawer anchor='right' open={openDrawer} onClose={toggleDrawer} PaperProps={{ sx: { width: '100%' } }}>
                 <Box sx={{ overflow: 'auto' }}>
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: 2, py: 1 }}>
+                  <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', px: 2, py: 1 }}>
                     <IconButton onClick={toggleDrawer}>
                       <CloseIcon />
                     </IconButton>
@@ -268,22 +291,22 @@ function Navbar({ activeURL = '' }: NavbarProps): React.JSX.Element {
                   <List>
                     {pages.map((page, index) =>
                       !page.menuItems ? (
-                        <ListItemButton
+                        <StyledListItemButton
                           key={index}
                           component={Link}
                           href={page.link || ''}
+                          active={pathname?.includes(page.link || '') || activeURL?.includes(page.link || '')}
                           onClick={toggleDrawer}
                           disabled={page.disabled}>
-                          <ListItemIcon>{page.icon}</ListItemIcon>
+                          <ListItemIcon className='page-icon'>{page.icon}</ListItemIcon>
                           <ListItemText
                             primary={page.name}
                             primaryTypographyProps={{
                               variant: 'subtitle1',
                               fontWeight: 700,
-                              color: colors.neutral[300],
                             }}
                           />
-                        </ListItemButton>
+                        </StyledListItemButton>
                       ) : (
                         <React.Fragment key={index}>
                           <ListItemButton

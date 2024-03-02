@@ -3,18 +3,18 @@ import * as React from 'react';
 import Image from 'next/image';
 
 // Material UI Components
-import { Box } from '@mui/material';
+import { useTheme } from '@mui/material';
+import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 // Local Imports
 import colors from '@/libs/ui/colors';
 
 const CardMediaStyle = {
-  width: '100%',
   borderBottom: {
     xs: '2px solid ' + colors.blue[900],
     lg: 'none',
@@ -33,28 +33,29 @@ interface LeaderContent {
 }
 
 export function LeaderCard({ name, position, image, description }: LeaderContent) {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+  const aspectRatio = isMobile ? '1 / 1' : '3 / 4';
   return (
     <Card sx={{ border: '2px solid ' + colors.blue[900], borderRadius: 0 }}>
-      <Stack direction={{ xs: 'column', lg: 'row' }}>
+      <Stack direction={{ xs: 'column', md: 'row' }}>
         <CardMedia sx={CardMediaStyle}>
           <Image
-            width={287}
-            height={339}
-            style={{ width: '100%', objectFit: 'cover' }}
             src={image}
-            alt='Leader image'
+            alt={name + ' image'}
+            width={0}
+            height={0}
+            sizes='50vw'
+            style={{ width: '100%', height: '100%', objectFit: 'cover', aspectRatio: aspectRatio }}
           />
         </CardMedia>
 
-        <Stack sx={{ padding: { xs: '1rem', lg: '2.5rem' }, gap: { xs: '0.5rem', lg: '2rem' } }}>
-          <Typography variant='h6' fontSize={{ xs: '1rem', lg: '1.25rem' }}>
-            {description}
-          </Typography>
+        <Stack sx={{ padding: { xs: '1rem', md: '2.5rem' }, gap: { xs: '0.5rem', md: '2rem' } }}>
+          <Typography variant='h6'>&quot; {description} &quot;</Typography>
           <Box>
-            <Typography variant='h6' fontSize={{ xs: '1rem', lg: '1.25rem' }}>
-              {position}
-            </Typography>
-            <Typography variant='h6' fontSize={{ xs: '1rem', lg: '1.25rem' }}>
+            <Typography variant='h6'>{position}</Typography>
+            <Typography variant='h6'>
               <b>{name}</b>
             </Typography>
           </Box>

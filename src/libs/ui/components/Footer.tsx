@@ -1,5 +1,6 @@
 // React and Next
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Material UI Components
 import { styled, useTheme } from '@mui/material';
@@ -18,16 +19,16 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import { colors } from '..';
 import { Logo } from '.';
 
-const StyledDiv = styled('div')(({ theme }) => ({
+const StyledDiv = styled('div')({
   display: 'flex',
   flexDirection: 'column',
   color: colors.neutral.white,
   backgroundColor: colors.blue[800],
-}));
+});
 
 const DividerContainer = styled('div')(({ theme }) => ({
   padding: '0 7.5rem',
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     padding: '0 1.875rem',
   },
 }));
@@ -59,7 +60,7 @@ export function Footer() {
 
   return (
     <footer>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Stack direction='row' justifyContent='space-between'>
         <Image src='/decor/triangle.svg' width='0' height={height} style={{ width: 'auto' }} alt='Footer gap' />
 
         <Image
@@ -69,10 +70,10 @@ export function Footer() {
           style={{ width: 'auto', transform: 'rotate(-90deg)' }}
           alt='Footer gap'
         />
-      </div>
+      </Stack>
 
       <StyledDiv>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Stack direction='row' justifyContent='space-between'>
           <Image
             src='decor/triangle.svg'
             width='0'
@@ -85,7 +86,7 @@ export function Footer() {
             <Grid item xs={12} lg={6}>
               <Grid container>
                 <Grid item xs={12} sm={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  <a href='/'>{!isMobile ? <Logo size='extraLarge' /> : <Logo size='large' />}</a>
+                  <Link href='/'>{!isMobile ? <Logo size='extraLarge' /> : <Logo size='large' />}</Link>
                 </Grid>
                 <Grid item xs={12} sm={6} sx={{ display: 'flex', flexDirection: 'column' }}>
                   <Typography variant='body1' fontWeight={700} mb={2.25}>
@@ -94,19 +95,21 @@ export function Footer() {
 
                   <Stack direction='row' sx={{ marginBottom: 1.5, display: 'flex', alignItems: 'center' }}>
                     <PhoneIcon sx={{ marginRight: 1 }} />
-                    <Typography variant='body2'>0939 074 483 - 0939 074 483</Typography>
+                    <Typography>0939 074 483 - 0939 074 483</Typography>
                   </Stack>
 
                   <Stack direction='row' sx={{ marginBottom: 1.5, display: 'flex', alignItems: 'center' }}>
                     <FacebookRounded sx={{ marginRight: 1 }} />
-                    <Typography variant='body2'>
-                      <a href='https://www.facebook.com/design.itus'>facebook.com/design.itus</a>
+                    <Typography component={Link} href='https://www.facebook.com/design.itus' target='_blank'>
+                      facebook.com/design.itus
                     </Typography>
                   </Stack>
 
                   <Stack direction='row' sx={{ display: 'flex', alignItems: 'center' }}>
                     <MailOutlineIcon sx={{ marginRight: 1 }} />
-                    <Typography variant='body2'>designclub@fit.hcmus.edu.vn</Typography>
+                    <Typography component={Link} href='mailto:designclub@fit.hcmus.edu.vn'>
+                      designclub@fit.hcmus.edu.vn
+                    </Typography>
                   </Stack>
                 </Grid>
               </Grid>
@@ -118,44 +121,44 @@ export function Footer() {
               <Grid container>
                 <Grid item sm={4} sx={FooterInfoStyles}>
                   <Typography variant='body1' fontWeight={700}>
-                    <a href='/'>Trang chủ</a>
+                    <Link href='/'>Trang chủ</Link>
                   </Typography>
-                  <Typography variant='body2'>
-                    <a href='AboutUs' onClick={smoothScroll}>
+                  <Typography>
+                    <Link href='AboutUs' onClick={smoothScroll}>
                       Chúng tôi là ai
-                    </a>
+                    </Link>
                   </Typography>
-                  <Typography variant='body2'>
-                    <a href='LastestEvents' onClick={smoothScroll}>
+                  <Typography>
+                    <Link href='LastestEvents' onClick={smoothScroll}>
                       Sự kiện gần đây
-                    </a>
+                    </Link>
                   </Typography>
-                  <Typography variant='body2'>
-                    <a href='Partners' onClick={smoothScroll}>
+                  <Typography>
+                    <Link href='Partners' onClick={smoothScroll}>
                       Đối tác
-                    </a>
+                    </Link>
                   </Typography>
-                  <Typography variant='body2'>
-                    <a href='Leaders' onClick={smoothScroll}>
+                  <Typography>
+                    <Link href='Leaders' onClick={smoothScroll}>
                       Người dẫn đầu
-                    </a>
+                    </Link>
                   </Typography>
                 </Grid>
                 <Grid item sm={4} sx={FooterInfoStyles}>
                   <Typography variant='body1' fontWeight={700}>
-                    <a href='/'>Giới thiệu</a>
+                    <Link href='/'>Giới thiệu</Link>
                   </Typography>
-                  <Typography variant='body2'>Lịch sử</Typography>
-                  <Typography variant='body2'>Các ban</Typography>
-                  <Typography variant='body2'>Gallery</Typography>
-                  <Typography variant='body2'>Liên hệ</Typography>
+                  <Typography>Lịch sử</Typography>
+                  <Typography>Các ban</Typography>
+                  <Typography>Gallery</Typography>
+                  <Typography>Liên hệ</Typography>
                 </Grid>
                 <Grid item sm={4} sx={FooterInfoStyles}>
                   <Typography variant='body1' fontWeight={700}>
-                    <a href='/'>Sự kiện</a>
+                    <Link href='/'>Sự kiện</Link>
                   </Typography>
-                  <Typography variant='body2'>Outr Space</Typography>
-                  <Typography variant='body2'>Sự kiện khác</Typography>
+                  <Typography>Outr Space</Typography>
+                  <Typography>Sự kiện khác</Typography>
                 </Grid>
               </Grid>
             </Grid>
@@ -168,10 +171,10 @@ export function Footer() {
             style={{ width: 'auto', transform: 'rotate(180deg)' }}
             alt='Footer gap'
           />
-        </div>
+        </Stack>
         <DividerContainer>
           <Divider sx={{ height: 0, border: '0.0625rem solid white' }} />
-          <Typography variant='body2' sx={{ padding: { xs: '0.5rem 0 1rem 0', md: '1rem 0 2rem 0' } }}>
+          <Typography sx={{ padding: { xs: '0.5rem 0 1rem 0', md: '1rem 0 2rem 0' } }}>
             © 2022 Design ITUS. All right reserved.
           </Typography>
         </DividerContainer>

@@ -7,12 +7,15 @@ import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const StyledDiv = styled('div')(({ theme }) => ({
-  margin: '4.375rem 0',
+  height: '37.5rem',
+  margin: '0 7.5rem',
   display: 'flex',
   flexDirection: 'column',
+  justifyContent: 'center',
   alignItems: 'center',
-  [theme.breakpoints.down('sm')]: {
-    margin: '2rem 0',
+  [theme.breakpoints.down('md')]: {
+    height: 'fit-content',
+    margin: '0 1.125rem',
   },
 }));
 
@@ -25,7 +28,7 @@ const QuoteContainer = styled('div')(({ theme }) => ({
   padding: '3rem 6rem',
   width: '100%',
   backgroundColor: '#E6F6FF',
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     padding: '3rem 3rem',
   },
   //Note: background color is not in colors.ts or theme.palette
@@ -33,13 +36,13 @@ const QuoteContainer = styled('div')(({ theme }) => ({
 
 export function Quote() {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <StyledDiv>
       {!isMobile ? (
         <Image
-          src='/decor/quoteheader.svg'
+          src='/decor/md_quoteheader.svg'
           width='0'
           height='0'
           style={{ width: '100%', height: 'auto' }}
@@ -47,7 +50,7 @@ export function Quote() {
         />
       ) : (
         <Image
-          src='/decor/smallquoteheader.svg'
+          src='/decor/xs_quoteheader.svg'
           width='0'
           height='0'
           style={{ width: '100%', height: 'auto' }}
@@ -69,7 +72,7 @@ export function Quote() {
 
       {!isMobile ? (
         <Image
-          src='/decor/quotefooter.svg'
+          src='/decor/md_quotefooter.svg'
           width='0'
           height='0'
           style={{ width: '100%', height: 'auto' }}
@@ -77,7 +80,7 @@ export function Quote() {
         />
       ) : (
         <Image
-          src='/decor/smallquotefooter.svg'
+          src='/decor/xs_quotefooter.svg'
           width='0'
           height='0'
           style={{ width: '100%', height: 'auto' }}

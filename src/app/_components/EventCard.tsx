@@ -1,6 +1,7 @@
 // React and Next
 import * as React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Material UI Components
 import Card from '@mui/material/Card';
@@ -20,13 +21,19 @@ interface EventContent {
 
 export function EventCard({ name, link, description, image }: EventContent) {
   return (
-    <a href={link}>
+    <Link href={link}>
       <Card sx={{ border: '2px solid ' + colors.blue[900], borderRadius: '0', boxShadow: 'none' }}>
         <CardMedia>
           <Image
             width={376}
             height={263}
-            style={{ width: '100%', objectFit: 'cover', borderBottom: '2px solid ' + colors.blue[900] }}
+            style={{
+              width: '100%',
+              height: '100',
+              aspectRatio: '4 / 3',
+              objectFit: 'cover',
+              borderBottom: '2px solid ' + colors.blue[900],
+            }}
             src={image}
             alt={name}
           />
@@ -37,9 +44,9 @@ export function EventCard({ name, link, description, image }: EventContent) {
             {name}
           </Typography>
 
-          <Typography variant='body2'>{description}</Typography>
+          <Typography>{description}</Typography>
         </CardContent>
       </Card>
-    </a>
+    </Link>
   );
 }

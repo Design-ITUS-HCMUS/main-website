@@ -6,15 +6,16 @@ import { styled } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 // Local Imports
-import InfiniteLooper from '../../libs/ui/components/InfiniteLooper';
+import InfiniteLooper from '@components/InfiniteLooper';
 
 const StyledDiv = styled('div')(({ theme }) => ({
-  margin: '9.375rem 0',
+  height: '31.25rem',
   display: 'flex',
   flexDirection: 'column',
+  justifyContent: 'center',
   alignItems: 'center',
-  [theme.breakpoints.down('sm')]: {
-    margin: '3rem 0',
+  [theme.breakpoints.down('md')]: {
+    height: '12.5rem',
   },
 }));
 
@@ -48,7 +49,7 @@ export function Partners() {
 
   return (
     <StyledDiv id='Partners'>
-      <Typography variant='title' marginBottom={{ xs: 4, md: 8 }}>
+      <Typography variant='title' marginBottom={{ xs: 2, md: 4.5 }}>
         ĐỐI TÁC
       </Typography>
       <InfiniteLooper speed='12' direction='left'>
