@@ -245,7 +245,7 @@ function Navbar({ activeURL = '' }: NavbarProps): React.JSX.Element {
   useMotionValueEvent(scrollY, 'change', (latest) => {
     if (navbarRef.current) {
       if (latest > 0) {
-        navbarRef.current.style.borderBottom = '2px solid rgb(0, 0, 0)';
+        navbarRef.current.style.borderBottom = `2px solid ${colors.blue[500]}`;
       } else {
         navbarRef.current.style.borderBottom = 'none';
       }
