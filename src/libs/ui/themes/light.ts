@@ -1,5 +1,6 @@
 'use client';
 import { Be_Vietnam_Pro } from 'next/font/google';
+import { Oswald } from 'next/font/google';
 
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
@@ -11,8 +12,17 @@ const beVietnamPro = Be_Vietnam_Pro({
   subsets: ['vietnamese'],
 });
 
+const oswald = Oswald({
+  display: 'swap',
+  weight: ['200', '300', '400', '500', '600', '700'],
+  subsets: ['vietnamese'],
+});
+
 let theme = createTheme({
   palette: {
+    background: {
+      default: colors.neutral.white,
+    },
     primary: {
       main: colors.blue[500],
       light: colors.blue[200],
@@ -44,6 +54,13 @@ let theme = createTheme({
     fontFamily: beVietnamPro.style.fontFamily + ', Be Vietnam Pro, sans-serif',
   },
   components: {
+    MuiCardMedia: {
+      styleOverrides: {
+        root: {
+          lineHeight: 0,
+        },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: {
         a: {
@@ -70,6 +87,13 @@ let theme = createTheme({
             },
           },
         },
+        {
+          props: { variant: 'contained' },
+          style: {
+            padding: '0.5rem 1.25rem',
+            width: 'fit-content',
+          },
+        },
       ],
       styleOverrides: {
         root: {
@@ -87,6 +111,33 @@ let theme = createTheme({
     },
   },
 } as any);
+
+declare module '@mui/material/styles' {
+  interface TypographyVariants {
+    title: React.CSSProperties;
+  }
+
+  // allow configuration using createTheme
+  interface TypographyVariantsOptions {
+    title?: React.CSSProperties;
+  }
+}
+
+// Update the Typography's variant prop options
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    title: true;
+  }
+}
+
+theme.typography.title = {
+  fontFamily: oswald.style.fontFamily + ', Oswald, sans-serif',
+  fontWeight: 700,
+  fontSize: '2.5rem',
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '1.25rem',
+  },
+};
 
 theme = responsiveFontSizes(theme);
 
