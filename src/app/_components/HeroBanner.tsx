@@ -1,9 +1,7 @@
 'use client';
 
-// React and Next
 import Image from 'next/image';
 
-// Material UI Components
 import { useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -12,7 +10,6 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-//Local Imports
 import { Icon } from '@/libs/ui/components/Icon';
 
 const ContainerStyles = {
@@ -28,7 +25,7 @@ const ContainerStyles = {
   alignItems: 'center',
 };
 
-export function HeroBanner() {
+export default function HeroBanner() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -48,7 +45,7 @@ export function HeroBanner() {
 
           <Stack direction={{ xs: 'column', md: 'row' }} width='100%' sx={{ gap: { xs: 2, md: 4 } }}>
             <Stack direction='row' alignItems='center' gap={1.25}>
-              <Icon image='/decor/codeslash.svg' name='Code slash' size='small' />
+              <Icon image='/decor/home/codeslash.svg' name='Code slash' size='small' />
 
               <Typography variant='subtitle1' fontWeight='600' color='primary.main'>
                 Creativity is a drug
@@ -60,7 +57,7 @@ export function HeroBanner() {
 
         <Grid item xs={12} sm={7} sx={{ marginTop: { xs: '-5rem', md: '0' } }}>
           <Image
-            src={isMobile ? '/decor/xs_geometrics.svg' : '/decor/md_geometrics.svg'}
+            src={isMobile ? '/decor/home/xs_geometrics.svg' : '/decor/home/md_geometrics.svg'}
             width='0'
             height={isMobile ? '350' : '550'}
             style={{ width: '100%', height: '100%' }}

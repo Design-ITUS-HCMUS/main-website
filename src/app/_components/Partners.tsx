@@ -1,11 +1,8 @@
-// React and Next
 import Image from 'next/image';
 
-// Material UI Components
 import { styled } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
-// Local Imports
 import InfiniteLooper from '@components/InfiniteLooper';
 
 const StyledDiv = styled('div')(({ theme }) => ({
@@ -19,7 +16,7 @@ const StyledDiv = styled('div')(({ theme }) => ({
   },
 }));
 
-export function Partners() {
+export default function Partners() {
   const partners = [
     {
       text: 'Cuộc thi An toàn thông tin - HCMUS CTF',

@@ -1,4 +1,4 @@
-import { Partners } from './Partners';
+import Partners from './Partners';
 
 import type { Meta, StoryObj } from '@storybook/react';
 

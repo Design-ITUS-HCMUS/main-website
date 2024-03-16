@@ -1,4 +1,4 @@
-import { LatestEvents } from './LatestEvents';
+import LatestEvents from './LatestEvents';
 
 import type { Meta, StoryObj } from '@storybook/react';
 

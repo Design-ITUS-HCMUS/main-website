@@ -1,8 +1,6 @@
-// React and Next
 import Image from 'next/image';
 import Link from 'next/link';
 
-// Material UI Components
 import { styled, useTheme } from '@mui/material';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
@@ -10,12 +8,10 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-// Material UI Icons
 import FacebookRounded from '@mui/icons-material/FacebookRounded';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PhoneIcon from '@mui/icons-material/Phone';
 
-// Local Imports
 import { colors } from '..';
 import { Logo } from '.';
 
@@ -45,7 +41,7 @@ function smoothScroll(event: React.MouseEvent<HTMLElement>) {
   window.scrollTo({ top: y, behavior: 'smooth' });
 }
 
-export function Footer() {
+export default function Footer() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -61,10 +57,10 @@ export function Footer() {
   return (
     <footer>
       <Stack direction='row' justifyContent='space-between'>
-        <Image src='/decor/triangle.svg' width='0' height={height} style={{ width: 'auto' }} alt='Footer gap' />
+        <Image src='/decor/footer/triangle.svg' width='0' height={height} style={{ width: 'auto' }} alt='Footer gap' />
 
         <Image
-          src='decor/triangle.svg'
+          src='/decor/footer/triangle.svg'
           width='0'
           height={height}
           style={{ width: 'auto', transform: 'rotate(-90deg)' }}
@@ -75,7 +71,7 @@ export function Footer() {
       <StyledDiv>
         <Stack direction='row' justifyContent='space-between'>
           <Image
-            src='decor/triangle.svg'
+            src='/decor/footer/triangle.svg'
             width='0'
             height={height}
             style={{ width: 'auto', transform: 'rotate(90deg)' }}
@@ -165,7 +161,7 @@ export function Footer() {
           </Grid>
 
           <Image
-            src='/decor/triangle.svg'
+            src='/decor/footer/triangle.svg'
             width='0'
             height={height}
             style={{ width: 'auto', transform: 'rotate(180deg)' }}

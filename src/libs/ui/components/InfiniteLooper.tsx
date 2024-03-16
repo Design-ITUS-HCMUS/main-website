@@ -1,8 +1,6 @@
-// React and Next
 import { useCallback, useEffect, useRef, useState } from 'react';
 import React from 'react';
 
-// Material UI Components
 import { styled } from '@mui/material';
 import { keyframes } from '@mui/material';
 

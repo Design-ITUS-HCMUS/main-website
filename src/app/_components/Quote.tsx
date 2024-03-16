@@ -1,7 +1,5 @@
-// React and Next
 import Image from 'next/image';
 
-// Material UI Components
 import { styled, useTheme } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -34,7 +32,7 @@ const QuoteContainer = styled('div')(({ theme }) => ({
   //Note: background color is not in colors.ts or theme.palette
 }));
 
-export function Quote() {
+export default function Quote() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -42,7 +40,7 @@ export function Quote() {
     <StyledDiv>
       {!isMobile ? (
         <Image
-          src='/decor/md_quoteheader.svg'
+          src='/decor/home/md_quoteheader.svg'
           width='0'
           height='0'
           style={{ width: '100%', height: 'auto' }}
@@ -50,7 +48,7 @@ export function Quote() {
         />
       ) : (
         <Image
-          src='/decor/xs_quoteheader.svg'
+          src='/decor/home/xs_quoteheader.svg'
           width='0'
           height='0'
           style={{ width: '100%', height: 'auto' }}
@@ -72,7 +70,7 @@ export function Quote() {
 
       {!isMobile ? (
         <Image
-          src='/decor/md_quotefooter.svg'
+          src='/decor/home/md_quotefooter.svg'
           width='0'
           height='0'
           style={{ width: '100%', height: 'auto' }}
@@ -80,7 +78,7 @@ export function Quote() {
         />
       ) : (
         <Image
-          src='/decor/xs_quotefooter.svg'
+          src='/decor/home/xs_quotefooter.svg'
           width='0'
           height='0'
           style={{ width: '100%', height: 'auto' }}
