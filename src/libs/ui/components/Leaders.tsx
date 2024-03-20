@@ -1,3 +1,4 @@
+'use client';
 import * as React from 'react';
 import Slideshow from 'react-slideshow-with-pagination';
 

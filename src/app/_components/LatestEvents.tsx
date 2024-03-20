@@ -15,7 +15,7 @@ const StyledDiv = styled('div')(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('sm')]: {
     height: '37.5rem',
     margin: '0 1.125rem',
   },

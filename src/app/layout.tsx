@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 
 import { CssBaseline } from '@mui/material';
+import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 
-import { lightTheme } from '@/libs/ui';
+import { Footer,lightTheme } from '@/libs/ui';
 
 export const metadata: Metadata = {
   title: 'Design ITUS',
@@ -22,7 +23,10 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={lightTheme}>
             <CssBaseline />
-            {children}
+            <Stack marginTop={{ xs: '3rem', md: '4rem' }}>
+              {children}
+              <Footer />
+            </Stack>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
