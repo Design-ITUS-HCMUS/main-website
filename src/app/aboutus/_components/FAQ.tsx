@@ -2,7 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import Accordion from '@mui/material/Accordion';
+import { styled } from '@mui/material';
+import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Grid from '@mui/material/Grid';
@@ -41,6 +42,22 @@ const socials = [
   },
 ];
 
+const Accordion = styled((props: AccordionProps) => <MuiAccordion disableGutters elevation={0} square {...props} />)(
+  ({ theme }) => ({
+    borderTop: `1px solid ${theme.palette.divider}`,
+    borderBottom: `1px solid ${theme.palette.divider}`,
+    '&:first-child': {
+      borderTop: 0,
+    },
+    '&:not(:last-child)': {
+      borderBottom: 0,
+    },
+    '&::before': {
+      display: 'none',
+    },
+  })
+);
+
 export default function FAQ() {
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
@@ -61,10 +78,10 @@ export default function FAQ() {
               <Typography variant='h6' fontWeight={700}>
                 Địa chỉ
               </Typography>
-              <Typography>
+              <Typography component={Link} href='https://maps.app.goo.gl/pjn533phX9AGDbQH9' target='_blank'>
                 <b>Cơ sở 1:</b> 227 Nguyễn Văn Cừ, phường 10, quận 5, TP.HCM
               </Typography>
-              <Typography>
+              <Typography component={Link} href='https://maps.app.goo.gl/DSZQMkcHmPCPLbHm7' target='_blank'>
                 <b>Cơ sở 2:</b> Linh Xuân, Linh Trung, Thủ Đức
               </Typography>
             </Stack>
@@ -73,7 +90,9 @@ export default function FAQ() {
               <Typography variant='h6' fontWeight={700}>
                 Email
               </Typography>
-              <Typography>designclub@fit.hcmus.edu.vn</Typography>
+              <Typography component={Link} href='mailto:designclub@fit.hcmus.edu.vn'>
+                designclub@fit.hcmus.edu.vn
+              </Typography>
             </Stack>
 
             <Stack>
@@ -108,8 +127,9 @@ export default function FAQ() {
                   defaultExpanded={index === 0 ? true : false}
                   expanded={expanded === `${index}`}
                   onChange={handleChange(`${index}`)}
-                  key={index}>
-                  <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  key={index}
+                  sx={{ boxShadow: 'none' }}>
+                  <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ padding: 0 }}>
                     <Typography fontWeight={600}>{item.question}</Typography>
                   </AccordionSummary>
 

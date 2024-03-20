@@ -1,3 +1,4 @@
+import { colors } from '..';
 import FlippyCard from './FlippyCard';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -9,10 +10,12 @@ const meta: Meta<typeof FlippyCard> = {
   },
   tags: ['autodocs'],
   args: {
-    frontImgUrl: '/decor/aboutus/graphic.svg',
+    department: 'Graphic',
     backImgUrl: '/images/aboutus/department/Graphic.png',
-    imgName: 'Graphic',
-    borderRadius: '30% 0',
+    borderRadius: '0 30%',
+    imgBorderRadius: '30% 0',
+    color: colors.neutral[500],
+    bgColor: '#03C9A5',
   },
 };
 

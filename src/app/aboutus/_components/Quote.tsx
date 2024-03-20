@@ -46,7 +46,7 @@ export default function Quote() {
 
         <Grid item xs={12} md={5} sx={TextContainerStyle}>
           <Typography variant='title' pt={2}>
-            THINKING OUTSIDE OF THE BOX
+            THINKING OUTSIDE THE BOX
           </Typography>
 
           <Typography py={2}>
