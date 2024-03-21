@@ -1,3 +1,4 @@
+export { default as FlippyCard } from './FlippyCard';
 export { default as Footer } from './Footer';
 export * from './Icon';
 export { default as InfiniteLooper } from './InfiniteLooper';

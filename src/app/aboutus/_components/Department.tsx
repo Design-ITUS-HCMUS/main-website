@@ -2,8 +2,7 @@ import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import colors from '@/libs/ui/colors';
-import FlippyCard from '@/libs/ui/components/FlippyCard';
+import { colors,FlippyCard } from '@/libs/ui';
 
 const departments = [
   {
@@ -12,7 +11,7 @@ const departments = [
     borderRadius: '0 30%',
     imgBorderRadius: '30% 0',
     color: colors.neutral[500],
-    bgColor: '#03C9A5',
+    bgColor: colors.complementary.green,
   },
   {
     name: 'Drawing',
@@ -20,7 +19,7 @@ const departments = [
     borderRadius: '50%',
     imgBorderRadius: '50%',
     color: colors.neutral.white,
-    bgColor: '#2653B1',
+    bgColor: colors.complementary.blue,
   },
   {
     name: 'Video',
@@ -28,7 +27,7 @@ const departments = [
     borderRadius: '30% 0',
     imgBorderRadius: '0 30%',
     color: colors.neutral.white,
-    bgColor: '#FFAF00',
+    bgColor: colors.complementary.orange,
   },
   {
     name: 'Photography',
@@ -36,7 +35,7 @@ const departments = [
     borderRadius: '0',
     imgBorderRadius: '0',
     color: colors.neutral.white,
-    bgColor: '#2653B1',
+    bgColor: colors.complementary.blue,
   },
   {
     name: 'Content',
@@ -44,7 +43,7 @@ const departments = [
     borderRadius: '50%',
     imgBorderRadius: '50%',
     color: colors.neutral.white,
-    bgColor: '#FFAF00',
+    bgColor: colors.complementary.orange,
   },
   {
     name: 'UI/UX',
@@ -52,23 +51,25 @@ const departments = [
     borderRadius: '0',
     imgBorderRadius: '0',
     color: colors.neutral[500],
-    bgColor: '#03C9A5',
+    bgColor: colors.complementary.green,
   },
 ];
 
 export default function Department() {
   return (
-    <Stack height='50rem' padding='6.25rem 7.5rem' display='flex' justifyContent='center'>
+    <Stack minHeight='50rem' padding='6.25rem 7.5rem' display='flex' justifyContent='center'>
       <Grid container lineHeight={0}>
         <Grid
           item
           xs={12}
           md={3}
           sx={{
-            aspectRatio: '1/1',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            xs: {
+              aspectRatio: '1/1',
+            },
           }}>
           <Typography variant='title' textAlign='center' width='160px' height='auto' lineHeight='normal'>
             BAN HOẠT ĐỘNG
@@ -76,7 +77,7 @@ export default function Department() {
         </Grid>
 
         {departments.map((department, index) => (
-          <Grid item xs={12} md={3} key={index} sx={{ aspectRatio: '1/1' }}>
+          <Grid item xs={6} md={3} key={index} sx={{ aspectRatio: '1/1' }}>
             <FlippyCard
               department={department.name}
               backImgUrl={department.backImg}
@@ -93,7 +94,7 @@ export default function Department() {
           xs={12}
           md={3}
           sx={{
-            padding: '3.375rem 3.75rem',
+            padding: '0 3.75rem',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',

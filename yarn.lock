@@ -10844,7 +10844,6 @@ __metadata:
     prettier: "npm:^3.2.5"
     react: "npm:^18"
     react-dom: "npm:^18"
-    react-slideshow-with-pagination: "npm:^1.0.2"
     storybook: "npm:^7.6.13"
     tsconfig-paths-webpack-plugin: "npm:^4.1.0"
     typescript: "npm:5"
@@ -12763,18 +12762,6 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 4952657e6a7b9d661d4ad4dfcef81b9c7fa493e35164abff99c35c0b27b3d172ef7ad70c09416dc44dd14ff2e6b38a5ec7da27e27e90a15cbad36b8fd2fd8054
-  languageName: node
-  linkType: hard
-
-"react-slideshow-with-pagination@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "react-slideshow-with-pagination@npm:1.0.2"
-  peerDependencies:
-    "@material-ui/core": ^4.11.2
-    prop-types: ^15.7.2
-    react: ^17.0.1
-    react-dom: ^17.0.1
-  checksum: 822679ead6328a01e2e83f8660c58a26373893ab2a2c53e0693d93804f9b22083185834966050a2713258df26763110c54eb16f3c3055bcf4a2b80bbc957b585
   languageName: node
   linkType: hard
 

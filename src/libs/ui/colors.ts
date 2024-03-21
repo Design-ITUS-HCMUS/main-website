@@ -31,6 +31,13 @@ const colors: any = {
     400: '#333333',
     500: '#000',
   },
+  complementary: {
+    green: '#03C9A5',
+    purple: '#8758FF',
+    blue: '#2653B1',
+    red: '#FD4F4F',
+    orange: '#FFAF00',
+  },
 };
 
 export default colors;
