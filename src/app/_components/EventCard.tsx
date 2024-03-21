@@ -1,15 +1,12 @@
-// React and Next
 import * as React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// Material UI Components
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-// Local Imports
 import colors from '@/libs/ui/colors';
 
 interface EventContent {
@@ -19,7 +16,7 @@ interface EventContent {
   image: string;
 }
 
-export function EventCard({ name, link, description, image }: EventContent) {
+export default function EventCard({ name, link, description, image }: EventContent) {
   return (
     <Link href={link}>
       <Card sx={{ border: '2px solid ' + colors.blue[900], borderRadius: '0', boxShadow: 'none' }}>

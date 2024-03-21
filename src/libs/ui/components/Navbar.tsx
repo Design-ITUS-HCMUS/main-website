@@ -1,12 +1,9 @@
 'use client';
 
-// React and Next
 import * as React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useMotionValueEvent, useScroll } from 'framer-motion';
 
-// Material UI Components
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -27,7 +24,6 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-// Material UI Icons
 import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 import CloseIcon from '@mui/icons-material/CloseRounded';
 import ExpandLessIcon from '@mui/icons-material/ExpandLessRounded';
@@ -36,9 +32,10 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import MenuIcon from '@mui/icons-material/MenuRounded';
 import ViewCarouselRoundedIcon from '@mui/icons-material/ViewCarouselRounded';
 
-// Local Imports
 import { colors } from '../';
 import { Logo } from './Logo';
+
+import { useMotionValueEvent, useScroll } from 'framer-motion';
 
 interface INavbarPill {
   name: string;
@@ -265,7 +262,7 @@ function Navbar({ activeURL = '' }: NavbarProps): React.JSX.Element {
                   <NavbarPill
                     {...page}
                     key={index}
-                    active={pathname?.includes(page.link || '') || activeURL?.includes(page.link || '')}
+                    active={!pathname?.localeCompare(page.link || '') || !activeURL?.localeCompare(page.link || '')}
                     disabled={page.disabled}
                   />
                 ))}

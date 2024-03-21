@@ -1,7 +1,5 @@
-// React and Next
 import Image from 'next/image';
 
-// Material UI Components
 import { useTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -9,7 +7,6 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-// Material UI Icons
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 const TextContainerStyle = {
@@ -20,7 +17,7 @@ const TextContainerStyle = {
   textAlign: { xs: 'center', md: 'left' },
 };
 
-export function AboutUs() {
+export default function AboutUs() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -30,7 +27,7 @@ export function AboutUs() {
         <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center' }}>
           {!isMobile ? (
             <Image
-              src='/decor/designitusaboutus.svg'
+              src='/decor/home/designitusaboutus.svg'
               width='0'
               height='300'
               style={{ width: 'auto' }}
@@ -38,7 +35,7 @@ export function AboutUs() {
             />
           ) : (
             <Image
-              src='/decor/designitusaboutus.svg'
+              src='/decor/home/designitusaboutus.svg'
               width='0'
               height='160'
               style={{ width: 'auto' }}

@@ -1,12 +1,11 @@
-// Material UI Components
 import { styled, useTheme } from '@mui/material';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-// Local Imports
-import { EventCard } from './EventCard';
+import EventCard from './EventCard';
+
 import eventData from '@/libs/data/eventData.json';
 
 const StyledDiv = styled('div')(({ theme }) => ({
@@ -16,13 +15,13 @@ const StyledDiv = styled('div')(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  [theme.breakpoints.down('md')]: {
+  [theme.breakpoints.down('sm')]: {
     height: '37.5rem',
     margin: '0 1.125rem',
   },
 }));
 
-export function LatestEvents() {
+export default function LatestEvents() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 

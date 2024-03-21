@@ -1,10 +1,8 @@
-// React and Next
+'use client';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import React from 'react';
 
-// Material UI Components
-import { styled } from '@mui/material';
-import { keyframes } from '@mui/material';
+import { keyframes, styled } from '@mui/material';
 
 const slideAnim = keyframes`
     from {
@@ -21,24 +19,17 @@ const LooperInnerList = styled('div')({
   width: 'fit-content',
 });
 
-const LooperListInstance = styled('div')({
+const LooperListInstance = styled('div')(({ theme }) => ({
   display: 'flex',
   width: 'max-content',
   gap: '100px',
   animation: `${slideAnim} linear infinite`,
-});
+  [theme.breakpoints.down('sm')]: {
+    gap: '20px',
+  },
+}));
 
-//   .looper__innerList[data-animate='true'] .looper__listInstance {
-//     animation: slideAnim linear infinite;
-//   }
-
-//   @media (max-width: 600px) {
-//     .looper__listInstance {
-//       gap: 20px;
-//     }
-//   }
-
-const StyledDiv = styled('div')(({ theme }) => ({
+const StyledDiv = styled('div')({
   width: '100%',
   overflow: 'hidden',
   // disable selection
@@ -47,7 +38,7 @@ const StyledDiv = styled('div')(({ theme }) => ({
   MozUserSelect: 'none',
   MsUserSelect: 'none',
   userSelect: 'none',
-}));
+});
 
 export default function InfiniteLooper({ speed, direction, children }: any) {
   const [looperInstances, setLooperInstances] = useState(1);
