@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import React from 'react';
 
-import { keyframes,styled } from '@mui/material';
+import { keyframes, styled } from '@mui/material';
 
 const slideAnim = keyframes`
     from {

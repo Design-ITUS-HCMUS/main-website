@@ -1498,15 +1498,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.14.0":
-  version: 7.24.0
-  resolution: "@babel/runtime@npm:7.24.0"
-  dependencies:
-    regenerator-runtime: "npm:^0.14.0"
-  checksum: 3495eed727bf4a4f84c35bb51ab53317ae38f4bbc3b1d0a8303751f9dfa0ce6f5fb2afced72b76c3dd0d8bb2ccb84787559a4dee9886291a36b26f02f0f759b4
-  languageName: node
-  linkType: hard
-
 "@babel/template@npm:^7.22.15, @babel/template@npm:^7.23.9":
   version: 7.23.9
   resolution: "@babel/template@npm:7.23.9"
@@ -10853,7 +10844,6 @@ __metadata:
     prettier: "npm:^3.2.5"
     react: "npm:^18"
     react-dom: "npm:^18"
-    react-flippy: "npm:^1.1.0"
     react-slideshow-with-pagination: "npm:^1.0.2"
     storybook: "npm:^7.6.13"
     tsconfig-paths-webpack-plugin: "npm:^4.1.0"
@@ -12703,18 +12693,6 @@ __metadata:
     react: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
     react-dom: ^0.14.8 || ^15.0.1 || ^16.0.0 || ^17.0.1 || ^18.0.0
   checksum: 0d60a0ea758529c32a706d0c69d70b69fb94de3c46442fffdee34f08f51ffceddbb5395b41dfd1565895653e9f60f98ca525835be9d5db1f16d6b22be12f4cd4
-  languageName: node
-  linkType: hard
-
-"react-flippy@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "react-flippy@npm:1.1.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.14.0"
-  peerDependencies:
-    react: ^17.0.2
-    react-dom: ^17.0.2
-  checksum: c858b45a3087a237d6f55e4c0fc4d777b4a54eb29fbd233b5059ee708494aa56fcc1f2cac5b5064ec5805e884360d5c09345a21836ff0ba83597557ff6618593
   languageName: node
   linkType: hard
 

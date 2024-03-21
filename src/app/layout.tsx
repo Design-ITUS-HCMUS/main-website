@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 
-import { Footer,lightTheme } from '@/libs/ui';
+import { Footer, lightTheme } from '@/libs/ui';
 
 export const metadata: Metadata = {
   title: 'Design ITUS',

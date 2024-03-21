@@ -92,7 +92,13 @@ export default function Department() {
           item
           xs={12}
           md={3}
-          sx={{ padding: '3.375rem 3.75rem', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          sx={{
+            padding: '3.375rem 3.75rem',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            aspectRatio: '1/1',
+          }}>
           <Typography variant='body1'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore. <br />
